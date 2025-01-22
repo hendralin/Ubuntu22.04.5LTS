@@ -1,0 +1,20 @@
+#!/bin/bash
+iptables -F
+iptables -X
+iptables -Z
+iptables -t nat -F
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -t nat -P PREROUTING ACCEPT
+iptables -t nat -P POSTROUTING ACCEPT
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT -s 172.18.197.0/24 -j ACCEPT
+iptables -A FORWARD -i ens32 -p udp -m udp --dport 80 -j REJECT --reject-with icmp-port-unreachable
+iptables -A FORWARD -i ens32 -p udp -m udp --dport 443 -j REJECT --reject-with icmp-port-unreachable
+iptables -t nat -A PREROUTING -i ens32 -p tcp --dport 80 -j REDIRECT --to-port 3128
+iptables -t nat -A PREROUTING -i ens32 -p tcp --dport 443 -j REDIRECT --to-port 3127
+iptables -I INPUT -p tcp -m tcp --dport 3127 -j ACCEPT 
+iptables -I INPUT -p tcp -m tcp --dport 3128 -j ACCEPT
+iptables -t nat -A POSTROUTING -j MASQUERADE
+exit 0
