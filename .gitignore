@@ -1,3 +1,2 @@
-squidstats
-squid/*.mp4
-unbound/*.mp4
+tmp
+*.mp4
