@@ -33,7 +33,8 @@
 
 [1. How to install the Unbound DNS resolver on Ubuntu 22.04](https://youtu.be/T38g5robMek)<br />
 [2. How to install the Squid HTTP Proxy version 6.x on Ubuntu 22.04](https://youtu.be/aDapDv5525U)<br />
-[3. How to install & setup squidstats-r54](https://youtu.be/TTZ6GFlqiEo)
+[3. How to install & setup squidstats-r54](https://youtu.be/TTZ6GFlqiEo)<br />
+[4. How to install & setup SqStat-1.20](https://youtu.be/H5QX0oksk7U)
 
 Configurations for Network Interface IP Address.
 
@@ -47,4 +48,5 @@ Proxy Server: 10.5.50.2/30
 1. High Performance HTTP/s Cache
 2. DNS Caching Server
 3. Squidstats-r54
+4. SqStat-1.20
 <hr>
